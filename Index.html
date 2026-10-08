@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Singh | Senior Software Engineer</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--card-bg);
+        }
+
+        .hero {
+            padding: 100px 0 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            align-self: flex-start;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 800px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .job-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-role {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .job-company {
+            color: var(--accent-color);
+        }
+
+        .job-date {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .job-bullets {
+            margin-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .job-bullets li {
+            margin-bottom: 8px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #1f2937;
+            color: #d1d5db;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-details a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-color);
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus {
+            outline: 1px solid var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .contact-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Vivek<span>.dev</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero" id="about">
+            <span class="badge">Immediate Joiner • Open for Contracts</span>
+            <h1>Hi, I'm Vivek Singh.<br>Senior Software Engineer.</h1>
+            <p>Backend Engineer with nearly 6 years of experience specializing in building scalable RESTful APIs, microservices, and AI-assisted legacy migration using Java, Spring Boot, AWS, and GCP.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn">Hire Me / Contact</a>
+                <a href="https://linkedin.com/in/vivek-sbbb16517b" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Backend Architecture</h3>
+                    <p>Java, Spring Boot, Microservices, Hibernate, RESTful APIs</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Cloud & DevOps</h3>
+                    <p>AWS, GCP, Docker, Kubernetes, Jenkins, CI/CD, Git, SVN</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Databases & Messaging</h3>
+                    <p>PostgreSQL, MSSQL, Oracle, Redis, RabbitMQ</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Security & Gen AI</h3>
+                    <p>Spring Security, OAuth 2.0, SSO, Generative AI Test & Code Migration</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-role">Senior Associate Technology L1</div>
+                            <div class="job-company">Publicis Sapient</div>
+                        </div>
+                        <div class="job-date">Apr 2025 – Apr 2026</div>
+                    </div>
+                    <ul class="job-bullets">
+                        <li>Utilized Generative AI to analyze legacy codebases, cutting manual analysis time by 30-40%.</li>
+                        <li>Transformed monolithic components into independently deployable microservices via AI-assisted code conversion.</li>
+                        <li>Integrated AI-generated unit and performance tests into CI/CD pipelines to elevate release confidence.</li>
+                        <li>Managed containerized deployments using Docker and Kubernetes.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-role">Senior SDE-1</div>
+                            <div class="job-company">Newgen Software Technologies Limited</div>
+                        </div>
+                        <div class="job-date">Jun 2022 – Apr 2025</div>
+                    </div>
+                    <ul class="job-bullets">
+                        <li>Led end-to-end backend design and deployment of 70+ APIs for the OmniDocs Mobile Application using Spring Boot and microservices.</li>
+                        <li>Upgraded Hibernate 3 to 5, improving overall application performance by 40%.</li>
+                        <li>Implemented silent notifications, boosting user engagement by 30%.</li>
+                        <li>Integrated Single Sign-On (SSO) while preserving backward compatibility.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-role">Software Engineer Grade-2</div>
+                            <div class="job-company">Xoriant Solution Pvt. Ltd.</div>
+                        </div>
+                        <div class="job-date">Jan 2022 – Jun 2022</div>
+                    </div>
+                    <ul class="job-bullets">
+                        <li>Modernized legacy systems into microservices for Avon, improving architecture flexibility.</li>
+                        <li>Designed and implemented high-throughput RESTful Web APIs using Spring Boot.</li>
+                    </ul>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-role">System Engineer</div>
+                            <div class="job-company">Infosys Ltd.</div>
+                        </div>
+                        <div class="job-date">Nov 2020 – Jan 2022</div>
+                    </div>
+                    <ul class="job-bullets">
+                        <li>Modernized DHL logistics platform into microservices using Java, PostgreSQL, and Redis.</li>
+                        <li>Implemented asynchronous messaging using RabbitMQ and secured endpoints with OAuth 2.0.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Showcase Projects</h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-title">OmniDocs Enterprise Backend</h3>
+                        <p class="project-desc">A scalable microservice architecture backing mobile enterprise document management, handling high-throughput secure requests and silent push notifications.</p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">Microservices</span>
+                            <span class="tag">OAuth 2.0</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/your-username/project-1" target="_blank">Source / Demo Link &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-title">AI Legacy Migration Toolkit</h3>
+                        <p class="project-desc">Automated analysis and refactoring suite utilizing Gen AI to extract business logic boundaries and auto-generate REST API modernizations.</p>
+                        <div class="project-tags">
+                            <span class="tag">Gen AI</span>
+                            <span class="tag">Python/Java</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">CI/CD</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/your-username/project-2" target="_blank">Source / Demo Link &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>I am currently available for full-time roles (Immediate Joiner) as well as freelance backend consulting and contract development projects.</p>
+                    <ul class="contact-details">
+                        <li><strong>Email:</strong> <a href="mailto:vs432975@gmail.com">vs432975@gmail.com</a></li>
+                        <li><strong>Phone:</strong> +91 9621705855</li>
+                        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/vivek-sbbb16517b" target="_blank">vivek-sbbb16517b</a></li>
+                        <li><strong>Location:</strong> India</li>
+                    </ul>
+                </div>
+
+                <form onsubmit="handleFormSubmit(event)">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <textarea id="message" rows="5" placeholder="Project details or opportunity outline..." required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vivek Singh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const mailtoUrl = `mailto:vs432975@gmail.com?subject=Contract/Job Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)} (Contact: ${encodeURIComponent(email)})`;
+            window.location.href = mailtoUrl;
+        }
+    </script>
+</body>
+</html>
